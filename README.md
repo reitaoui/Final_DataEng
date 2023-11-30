@@ -2,19 +2,33 @@
 
 ## Objectif
 
-Simuler un projet d'entreprise réel où plusieurs développeurs travaillent sur le même projet, chacun développant une fonctionnalité dans une branche différente, puis fusionnant sa version finale avec la branche principale (`main`). L'objectif final est de créer un conteneur Docker basé sur la branche principale du dépôt GitHub, se mettant à jour automatiquement en production.
+L'objectif de ce projet est de simuler un environnement de développement collaboratif pour créer un modèle de clustering textuel basé sur la réduction de dimensionnalité (ACP, TSNE, UMAP) et l'algorithme de clustering K-Means. Chaque membre de l'équipe travaillera sur une approche spécifique dans une branche distincte avant de fusionner ses modifications dans la branche principale (`main`). Enfin, une image Docker sera créée, exécutée et partagée sur Docker Hub pour permettre un déploiement facile.
 
 ## Consignes
 
-Utilisez le [repository GitHub](https://github.com/MLDS-AF/Examen) comme point de départ, contenant des templates. Suivez les étapes ci-dessous :
+1. **Développement du Modèle de Clustering :**
+   - Utilisation des données textuelles, par exemple, les données NG20 limitées à 2000 documents.
+   - Développement d'une approche séquentielle combinant la réduction de dimensionnalité (ACP, TSNE, UMAP) avec l'algorithme de clustering K-Means.
 
-1. Développez un modèle de clustering basé sur la réduction de la dimensionalité via l'ACP, TSNE et UMAP (espace réduit de dimension 20). Utilisez des données textuelles (par exemple, les données NG20, en limitant à 2000 documents). La méthode est séquentielle, combinant une méthode de réduction de dimension avec l'algorithme de clustering K-Means.
+2. **Repository GitHub :**
+   - Création d'un repository GitHub avec un README et un `.gitignore`.
+   - Ajout d'un fichier `main.py` évaluant chaque approche (ACP+kmeans, TSNE+kmeans, UMAP+kmeans) avec des métriques telles que NMI, ARI et Accuracy.
 
-2. Créez un repository GitHub contenant un README et un `.gitignore`. Ajoutez un fichier `main.py` évaluant chaque approche (ACP+kmeans, TSNE+kmeans, UMAP+kmeans) avec des métriques telles que NMI, ARI et Accuracy. 
+3. **Travail en Collaboration :**
+   - Travail de manière indépendante et asynchrone.
+   - Utilisation du notebook `template_branche.ipynb` pour le développement et les tests.
+   - Création d'une nouvelle branche pour chaque approche (ACP, TSNE, UMAP).
+   - Fusion de chaque branche avec `main` via une pull request.
+   - Ajout du notebook dans un dossier "experiments" et de l'approche dans `main.py`.
 
-3. Travaillez de manière indépendante et asynchrone, en développant chaque approche dans une nouvelle branche. Utilisez le notebook `template_branche.ipynb` pour développer et tester le modèle. Fusionnez ensuite chaque méthode avec la branche `main` à l'aide d'une pull request, en ajoutant votre notebook dans un dossier "experiments" et votre approche dans `main.py`.
+4. **Création de l'Image Docker :**
+   - Clone de la branche `main` sur la machine.
+   - Création d'un Dockerfile spécifiant l'environnement et les dépendances nécessaires.
+   - Exécution du fichier `main.py` dans le conteneur Docker.
+   - Récupération des résultats du clustering pour chaque méthode.
 
-4. Faites un clone de la branche `main` sur une machine, créez une image Docker et exécutez le fichier `main.py`. Récupérez les résultats du clustering pour chaque méthode.
+5. **Publication sur Docker Hub :**
+   - Création d'une image Docker avec les modifications apportées.
+   - Push de l'image sur Docker Hub pour la rendre accessible à d'autres membres de l'équipe.
 
-5. Poussez l'image Docker résultante sur Docker Hub pour la rendre accessible à d'autres utilisateurs.
-
+En suivant ces étapes, le projet simule un workflow collaboratif de développement, de tests et de déploiement d'un modèle de clustering textuel. L'utilisation de Docker facilite la distribution du modèle et assure une reproductibilité de l'environnement.
