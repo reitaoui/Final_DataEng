@@ -1,0 +1,8 @@
+numpy
+scipy
+scikit-learn
+numba
+umap-learn
+prince
+sentence-transformers
+
