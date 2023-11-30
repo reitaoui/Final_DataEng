@@ -2,6 +2,7 @@ from sklearn.datasets import fetch_20newsgroups
 from sklearn.metrics.cluster import normalized_mutual_info_score, adjusted_rand_score
 from sentence_transformers import SentenceTransformer
 from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 import numpy as np
 import umap
 
@@ -21,8 +22,10 @@ def dim_red(mat, p, method):
         pca = PCA(n_components=p)
         red_mat = pca.fit_transform(mat)
         
-    elif method=='AFC':
-        red_mat = mat[:,:p]
+    elif method=='TSNE':
+        tsne = TSNE(n_components=p)
+        red_mat = tsne.fit_transform(mat)
+        
         
     elif method=='UMAP':
         reducer = umap.UMAP(n_components=p)
@@ -63,11 +66,15 @@ model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 embeddings = model.encode(corpus)
 
 # Perform dimensionality reduction and clustering for each method
-methods = ['ACP', 'AFC', 'UMAP']
+methods = ['ACP', 'TSNE', 'UMAP']
 for method in methods:
-    # Perform dimensionality reduction
-    red_emb = dim_red(embeddings, 20, method)
 
+    # Perform dimensionality reduction
+    if method == 'TSNE':
+        red_emb = dim_red(embeddings, 3, method)
+    else:
+        red_emb = dim_red(embeddings, 20, method)
+    
     # Perform clustering
     pred = clust(red_emb, k)
 
