@@ -9,7 +9,7 @@ L'objectif de ce projet est de simuler un environnement de développement collab
 ## Consignes
 
 1. **Développement du Modèle de Clustering :**
-   - Utilisation des données textuelles, par exemple, les données NG20 limitées à 2000 documents.
+   - Utilisation des données textuelles, les données NG20 limitées à 2000 documents.
    - Développement d'une approche séquentielle combinant la réduction de dimensionnalité (ACP, TSNE, UMAP) avec l'algorithme de clustering K-Means.
 
 2. **Repository GitHub :**
@@ -30,11 +30,14 @@ L'objectif de ce projet est de simuler un environnement de développement collab
    - Récupération des résultats du clustering pour chaque méthode.
 
 5. **Publication sur Docker Hub :**
-   - Création d'une image Docker avec les modifications apportées.
+   - Création d'une image Docker avec les modifications apportées. [
    - Push de l'image sur Docker Hub pour la rendre accessible à d'autres membres de l'équipe.
+     
+## BONUS 
+### Modification du Code dans la branche bonus (Optimisation majeure)
 
-## Modification du Code dans la branche bonus (Optimisation majeure)
+Le code initial a été significativement amélioré dans la branche bonus pour éviter la dépendance à `sentence_transformers` en raison de sa taille importante (réduisant les imports de 8GB à 760MB). De plus, des méthodes de clustering supplémentaires, telles que l'Agglomerative Clustering et DBSCAN, ont été intégrées pour offrir une variété d'options aux utilisateurs. De plus, des visualisations après chaque méthode de réduction de dimension ont été ajoutées pour faciliter l'analyse des résultats.
 
-Le code initial a été adapté pour éviter la dépendance à `sentence_transformers` en raison de sa taille importante (on est passé d'imports de taille 8GB à 760 mbs). À la place, une approche de base d'extraction de caractéristiques à l'aide de 'pickle' et `CountVectorizer` a été intégrée. Cette modification a été effectuée pour faciliter le partage et la reproductibilité du code au sein de l'équipe.
+À la place de `sentence_transformers`, une approche de base d'extraction de caractéristiques à l'aide de 'pickle' et `CountVectorizer` a été intégrée. Ces modifications ont été apportées pour améliorer l'efficacité, faciliter le partage et garantir la reproductibilité du code au sein de l'équipe.
 
-En suivant ces étapes, le projet simule un workflow collaboratif de développement, de tests et de déploiement d'un modèle de clustering textuel. L'utilisation de Docker facilite la distribution du modèle et assure une reproductibilité de l'environnement.
+En suivant ces étapes, la branche bonus offre une version optimisée du workflow collaboratif de développement, de tests et de déploiement d'un modèle de clustering textuel. L'utilisation de Docker facilite la distribution du modèle, assurant ainsi une reproductibilité de l'environnement.
