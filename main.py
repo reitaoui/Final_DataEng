@@ -6,7 +6,8 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 import numpy as np
 import umap
-from sklearn.cluster import Kmeans
+from sklearn.cluster import KMeans
+
 
 def dim_red(mat, p, method):
     '''
