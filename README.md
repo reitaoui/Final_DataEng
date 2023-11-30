@@ -40,4 +40,6 @@ Le code initial a été significativement amélioré dans la branche bonus pour 
 
 À la place de `sentence_transformers`, une approche de base d'extraction de caractéristiques à l'aide de 'pickle' et `CountVectorizer` a été intégrée. Ces modifications ont été apportées pour améliorer l'efficacité, faciliter le partage et garantir la reproductibilité du code au sein de l'équipe.
 
+La nouvelle image docker - [ https://hub.docker.com/repository/docker/reitaoui/image_bonus/general ]
+
 En suivant ces étapes, la branche bonus offre une version optimisée du workflow collaboratif de développement, de tests et de déploiement d'un modèle de clustering textuel. L'utilisation de Docker facilite la distribution du modèle, assurant ainsi une reproductibilité de l'environnement.
