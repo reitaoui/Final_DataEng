@@ -1,5 +1,7 @@
 # Projet de Clustering Textuel
 
+-- réalisé par Reina EL ITAOUI et Lydia GUISSI
+
 ## Objectif
 
 L'objectif de ce projet est de simuler un environnement de développement collaboratif pour créer un modèle de clustering textuel basé sur la réduction de dimensionnalité (ACP, TSNE, UMAP) et l'algorithme de clustering K-Means. Chaque membre de l'équipe travaillera sur une approche spécifique dans une branche distincte avant de fusionner ses modifications dans la branche principale (`main`). Enfin, une image Docker sera créée, exécutée et partagée sur Docker Hub pour permettre un déploiement facile.
