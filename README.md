@@ -1,4 +1,4 @@
-# Projet de Clustering Textuel
+# Projet de Clustering Textuel - Rapport de Fusion
 
 -- réalisé par Reina EL ITAOUI et Lydia GUISSI
 
@@ -32,5 +32,9 @@ L'objectif de ce projet est de simuler un environnement de développement collab
 5. **Publication sur Docker Hub :**
    - Création d'une image Docker avec les modifications apportées.
    - Push de l'image sur Docker Hub pour la rendre accessible à d'autres membres de l'équipe.
+
+## Modification du Code dans la branche bonus (Optimisation majeure)
+
+Le code initial a été adapté pour éviter la dépendance à `sentence_transformers` en raison de sa taille importante (on est passé d'imports de taille 8GB à 760 mbs). À la place, une approche de base d'extraction de caractéristiques à l'aide de 'pickle' et `CountVectorizer` a été intégrée. Cette modification a été effectuée pour faciliter le partage et la reproductibilité du code au sein de l'équipe.
 
 En suivant ces étapes, le projet simule un workflow collaboratif de développement, de tests et de déploiement d'un modèle de clustering textuel. L'utilisation de Docker facilite la distribution du modèle et assure une reproductibilité de l'environnement.
