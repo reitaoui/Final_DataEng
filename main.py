@@ -1,6 +1,7 @@
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.metrics.cluster import normalized_mutual_info_score, adjusted_rand_score
 from sentence_transformers import SentenceTransformer
+from sklearn.decomposition import PCA
 import numpy as np
 import umap
 
@@ -17,7 +18,6 @@ def dim_red(mat, p, method):
         red_mat : NxP list such that p<<m
     '''
     if method=='ACP':
-       from sklearn.decomposition import PCA
         pca = PCA(n_components=p)
         red_mat = pca.fit_transform(mat)
         
